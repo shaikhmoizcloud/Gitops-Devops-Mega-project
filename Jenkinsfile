@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-              APP_NAME = "devops-mega-project"
+              APP_NAME = "gitops-mega-project"
     }
 
     stages{
@@ -14,7 +14,7 @@ pipeline {
         }
         stage("Checkout from SCM") {
                steps {
-                   git branch: 'main', credentialsId: 'github', url: 'https://github.com/Devops1224789/Gitops-Devops-Mega-project.git'
+                   git branch: 'main', credentialsId: 'github', url: 'https://github.com/shaikhmoizcloud/Gitops-Devops-Mega-project.git'
                }
         }
 
@@ -37,7 +37,7 @@ pipeline {
                    git commit -m "Updated Deployment Manifest"
                 """
                 withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
-                  sh "git push https://github.com/Devops1224789/Gitops-Devops-Mega-project.git main"
+                  sh "git push https://github.com/shaikhmoizcloud/Gitops-Devops-Mega-project.git main"
                 }
             }
         }
